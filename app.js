@@ -1,7 +1,8 @@
 // Vector art gallery: reads art.json, renders a grid grouped by year, and a
 // full-screen viewer at #<piece-id>.
 
-// TEMPORARY: only tet.svg has been copied from OneDrive so far. Any piece whose
+// TEMPORARY: only tet.svg has been copied from OneDrive so far (tet itself is not
+// in the gallery). Any piece whose
 // file is missing shows tet instead. Delete these two lines (and their uses in
 // fallback()) once every file in art.json is in art/ and thumbs/.
 const PLACEHOLDER_FILE = "art/tet.svg";

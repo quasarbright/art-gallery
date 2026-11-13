@@ -8,7 +8,9 @@ what's worth checking.
 Only `tet.svg` has been copied from OneDrive so far. OneDrive wouldn't download
 the other files (they're cloud-only placeholders and the download hung). Until
 they're copied into `art/` and `npm run thumbs` is run, the page shows tet in
-place of every other piece. Remove the `PLACEHOLDER_*` lines in `app.js` after that.
+place of every piece. Tet itself isn't in the gallery. After the files are in,
+remove the `PLACEHOLDER_*` lines in `app.js` and delete `art/tet.svg` and
+`thumbs/tet.jpg`.
 
 ## Tweets
 
@@ -33,18 +35,20 @@ export (no SVG):
 File creation times are useless: every file in the folder was created on
 2024-05-04 at 13:39 or 13:40, the day the folder was copied. File
 modification times line up with the tweets, 3 to 7 minutes before each post
-for all six tweeted pieces. So the 23 untweeted pieces use the modified date of
+for all six tweeted pieces. So the 19 untweeted pieces use the modified date of
 their exported file, marked `"dateSource": "file-modified"`.
 
-## Not matched to a post (23)
+## Not matched to a post (19)
 
-Tet, Ocular Patdown, Virgil, Koichi Pose, Pro Genji, Corrin, Kakkoii Kakyoin,
-Bucci, ZSS Corrin, Daga Kotowaru, Giorno Arrow, Hayato, Shigechi Holding His
-Lunch, Phos, Joker Looking Cool, Rock Flag and Eagle, Falcon Come On, Light
-Yagami, Light Yagami (red), Lelouch, Lelouch Emperor, Magic Snake, Mint Jams.
-These have no description. Titles come from the filenames.
+Ocular Patdown, Koichi Pose, Pro Genji, Corrin, Kakkoii Kakyoin, Bucci, ZSS
+Corrin, Daga Kotowaru, Giorno Arrow, Hayato, Shigechi Holding His Lunch, Joker
+Looking Cool, Falcon Come On, Light Yagami, Light Yagami (red), Lelouch, Lelouch
+Emperor, Magic Snake, Mint Jams. These have no description. Titles come from
+the filenames.
 
 ## Worth checking
+
+- Left out at Mike's request: tet, virgil, phos, rock flag and eagle.
 
 - **Light Yagami (red)** and **Lelouch Emperor** are listed as their own pieces.
   They might be better as alternate versions of Light Yagami and Lelouch.

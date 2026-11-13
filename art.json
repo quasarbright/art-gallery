@@ -161,18 +161,6 @@
       "source": "falcon come on.svg"
     },
     {
-      "id": "rock-flag-and-eagle",
-      "title": "Rock Flag and Eagle",
-      "file": "art/rock-flag-and-eagle.svg",
-      "thumb": "thumbs/rock-flag-and-eagle.jpg",
-      "date": "2020-01-06",
-      "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
-      "tweetedAt": null,
-      "source": "rock flag and eagle.svg"
-    },
-    {
       "id": "joker-looking-cool",
       "title": "Joker Looking Cool",
       "file": "art/joker-looking-cool.svg",
@@ -183,18 +171,6 @@
       "tweet": null,
       "tweetedAt": null,
       "source": "joker looking cool.svg"
-    },
-    {
-      "id": "phos",
-      "title": "Phos",
-      "file": "art/phos.svg",
-      "thumb": "thumbs/phos.jpg",
-      "date": "2019-10-07",
-      "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
-      "tweetedAt": null,
-      "source": "phos.svg"
     },
     {
       "id": "shigechi-holding-his-lunch",
@@ -317,18 +293,6 @@
       "source": "koichi pose.svg"
     },
     {
-      "id": "virgil",
-      "title": "Virgil",
-      "file": "art/virgil.svg",
-      "thumb": "thumbs/virgil.jpg",
-      "date": "2019-06-14",
-      "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
-      "tweetedAt": null,
-      "source": "virgil.svg"
-    },
-    {
       "id": "ocular-patdown",
       "title": "Ocular Patdown",
       "file": "art/ocular-patdown.svg",
@@ -339,18 +303,6 @@
       "tweet": null,
       "tweetedAt": null,
       "source": "ocular patdown.svg"
-    },
-    {
-      "id": "tet",
-      "title": "Tet",
-      "file": "art/tet.svg",
-      "thumb": "thumbs/tet.jpg",
-      "date": "2019-06-12",
-      "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
-      "tweetedAt": null,
-      "source": "tet.svg"
     }
   ]
 }
