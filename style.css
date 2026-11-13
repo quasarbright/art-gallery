@@ -271,13 +271,6 @@ mike-footer { padding-bottom: 32px !important; }
   font-size: .95rem;
   color: var(--ink-soft);
 }
-.viewer-desc {
-  margin: 4px 0 0;
-  max-width: 60ch;
-  font-size: .9rem;
-  color: var(--ink-soft);
-}
-.viewer-desc:empty { display: none; }
 .viewer-links {
   display: flex;
   gap: 8px 20px;

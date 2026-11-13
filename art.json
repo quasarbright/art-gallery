@@ -11,8 +11,6 @@
       "thumb": "thumbs/mint-jams.jpg",
       "date": "2023-08-18",
       "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
       "tweetedAt": null,
       "source": "mint jams.png"
     },
@@ -23,8 +21,6 @@
       "thumb": "thumbs/magic-snake.jpg",
       "date": "2020-10-07",
       "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
       "tweetedAt": null,
       "source": "magic snake.png"
     },
@@ -35,8 +31,6 @@
       "thumb": "thumbs/itachi-red.jpg",
       "date": "2020-10-04",
       "dateSource": "tweet",
-      "description": "Itachi uchiha\n#naruto #narutofanart #fanart #AnimeArt #anime",
-      "tweet": "https://x.com/QuasarBright/status/1312844502609137665",
       "tweetedAt": "2020-10-04T19:58:15Z",
       "source": "itachi pole red.png"
     },
@@ -47,8 +41,6 @@
       "thumb": "thumbs/itachi-blue.jpg",
       "date": "2020-10-04",
       "dateSource": "tweet",
-      "description": "Itachi uchiha\n#naruto #narutofanart #fanart #AnimeArt #anime",
-      "tweet": "https://x.com/QuasarBright/status/1312844399047573504",
       "tweetedAt": "2020-10-04T19:57:50Z",
       "source": "itachi pole blue.png"
     },
@@ -59,8 +51,6 @@
       "thumb": "thumbs/saitama.jpg",
       "date": "2020-10-01",
       "dateSource": "tweet",
-      "description": "Saitama\n#OnePunchMan  #fanart #saitama #AnimeArt",
-      "tweet": "https://x.com/QuasarBright/status/1311760134130016267",
       "tweetedAt": "2020-10-01T20:09:21Z",
       "source": "saitama gum.png"
     },
@@ -71,8 +61,6 @@
       "thumb": "thumbs/part-4-jotaro-recolor.jpg",
       "date": "2020-05-26",
       "dateSource": "tweet",
-      "description": "Part 4 Jotaro Recolor\n#jjba #anime #fanart #JotaroKujo #jojosbizarreadventure",
-      "tweet": "https://x.com/QuasarBright/status/1265416283421577216",
       "tweetedAt": "2020-05-26T22:55:26Z",
       "source": "part 4 jotaro recolor.png"
     },
@@ -83,8 +71,6 @@
       "thumb": "thumbs/part-4-jotaro.jpg",
       "date": "2020-05-26",
       "dateSource": "tweet",
-      "description": "Part 4 Jotaro\n#jjba #anime #fanart #JotaroKujo #jojosbizarreadventure",
-      "tweet": "https://x.com/QuasarBright/status/1265204659993612288",
       "tweetedAt": "2020-05-26T08:54:31Z",
       "source": "part 4 jotaro.png"
     },
@@ -95,8 +81,6 @@
       "thumb": "thumbs/mob-and-reigen.jpg",
       "date": "2020-05-19",
       "dateSource": "tweet",
-      "description": "Mob and Reigen\n#mobpsycho100 #anime #fanart #animefanart #mobu #spiritsandsuch",
-      "tweet": "https://x.com/QuasarBright/status/1262875403519168514",
       "tweetedAt": "2020-05-19T22:38:53Z",
       "source": "mob and reigen.png"
     },
@@ -107,8 +91,6 @@
       "thumb": "thumbs/lelouch.jpg",
       "date": "2020-05-19",
       "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
       "tweetedAt": null,
       "source": "lelouch.png"
     },
@@ -119,8 +101,6 @@
       "thumb": "thumbs/lelouch-emperor.jpg",
       "date": "2020-05-19",
       "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
       "tweetedAt": null,
       "source": "lelouch emperor.png"
     },
@@ -131,8 +111,6 @@
       "thumb": "thumbs/light-yagami.jpg",
       "date": "2020-03-20",
       "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
       "tweetedAt": null,
       "source": "light yagami.png"
     },
@@ -143,8 +121,6 @@
       "thumb": "thumbs/light-yagami-red.jpg",
       "date": "2020-03-20",
       "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
       "tweetedAt": null,
       "source": "light yagami red.png"
     },
@@ -155,8 +131,6 @@
       "thumb": "thumbs/falcon-come-on.jpg",
       "date": "2020-01-07",
       "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
       "tweetedAt": null,
       "source": "falcon come on.svg"
     },
@@ -167,22 +141,19 @@
       "thumb": "thumbs/joker-looking-cool.jpg",
       "date": "2019-12-02",
       "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
       "tweetedAt": null,
       "source": "joker looking cool.svg"
     },
     {
       "id": "shigechi-holding-his-lunch",
       "title": "Shigechi Holding His Lunch",
-      "file": "art/shigechi-holding-his-lunch.png",
+      "file": "art/shigechi-holding-his-lunch.svg",
       "thumb": "thumbs/shigechi-holding-his-lunch.jpg",
       "date": "2019-09-09",
       "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
       "tweetedAt": null,
-      "source": "Shigechi holding his lunch.png"
+      "source": "Shigechi holding his lunch.svg",
+      "note": "The saved SVG had both characters moved off the page (left 503.3, up 15.6). The copy here puts them back with one transform per layer; it matches the PNG export to within anti-aliasing."
     },
     {
       "id": "hayato",
@@ -191,8 +162,6 @@
       "thumb": "thumbs/hayato.jpg",
       "date": "2019-09-08",
       "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
       "tweetedAt": null,
       "source": "HAYATO.svg"
     },
@@ -203,8 +172,6 @@
       "thumb": "thumbs/giorno-arrow.jpg",
       "date": "2019-09-07",
       "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
       "tweetedAt": null,
       "source": "giorno arrow.svg"
     },
@@ -215,8 +182,6 @@
       "thumb": "thumbs/daga-kotowaru.jpg",
       "date": "2019-08-27",
       "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
       "tweetedAt": null,
       "source": "daga kotowaru.svg"
     },
@@ -227,8 +192,6 @@
       "thumb": "thumbs/zsscorrin.jpg",
       "date": "2019-07-07",
       "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
       "tweetedAt": null,
       "source": "zsscorrin.svg"
     },
@@ -239,8 +202,6 @@
       "thumb": "thumbs/bucci.jpg",
       "date": "2019-07-02",
       "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
       "tweetedAt": null,
       "source": "bucci.svg"
     },
@@ -251,8 +212,6 @@
       "thumb": "thumbs/kakkoii-kakyoin.jpg",
       "date": "2019-06-30",
       "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
       "tweetedAt": null,
       "source": "kakkoii kakyoin.svg"
     },
@@ -263,8 +222,6 @@
       "thumb": "thumbs/corrin.jpg",
       "date": "2019-06-29",
       "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
       "tweetedAt": null,
       "source": "corrin.svg"
     },
@@ -275,8 +232,6 @@
       "thumb": "thumbs/pro-genji.jpg",
       "date": "2019-06-19",
       "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
       "tweetedAt": null,
       "source": "pro genji.svg"
     },
@@ -287,8 +242,6 @@
       "thumb": "thumbs/koichi-pose.jpg",
       "date": "2019-06-15",
       "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
       "tweetedAt": null,
       "source": "koichi pose.svg"
     },
@@ -299,8 +252,6 @@
       "thumb": "thumbs/ocular-patdown.jpg",
       "date": "2019-06-13",
       "dateSource": "file-modified",
-      "description": null,
-      "tweet": null,
       "tweetedAt": null,
       "source": "ocular patdown.svg"
     }

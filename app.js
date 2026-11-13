@@ -6,7 +6,6 @@ const viewer = document.getElementById("viewer");
 const vImg = viewer.querySelector(".viewer-img");
 const vTitle = viewer.querySelector(".viewer-title");
 const vMeta = viewer.querySelector(".viewer-meta");
-const vDesc = viewer.querySelector(".viewer-desc");
 const vLinks = viewer.querySelector(".viewer-links");
 
 let pieces = [];
@@ -109,15 +108,6 @@ function wallFor(p) {
 }
 
 // ---------- viewer ----------
-function captionText(p) {
-  // Tweets start with the title on its own line, then hashtags. Show only what
-  // the title doesn't already say.
-  if (!p.description) return "";
-  const lines = p.description.split("\n").map((s) => s.trim()).filter(Boolean);
-  if (lines.length && lines[0].toLowerCase() === p.title.toLowerCase().replace(/\s*\(.*\)$/, "")) lines.shift();
-  return lines.join(" ");
-}
-
 function show(i) {
   const p = pieces[i];
   if (!p) return;
@@ -127,9 +117,7 @@ function show(i) {
   vImg.src = p.file;
   vTitle.textContent = p.title;
   vMeta.textContent = [fmtDate(p.date), `${i + 1} of ${pieces.length}`].filter(Boolean).join(", ");
-  vDesc.textContent = captionText(p);
   vLinks.innerHTML = "";
-  if (p.tweet) vLinks.append(link(p.tweet, "View post on X"));
   vLinks.append(link(p.file, p.file.endsWith(".svg") ? "Open SVG" : "Open PNG"));
   document.title = `${p.title} | Mike Delmonaco’s Vector Art`;
   wallFor(p).then((rgb) => { if (current === i && rgb) setWall(rgb); });
