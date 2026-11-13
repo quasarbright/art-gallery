@@ -1,6 +1,6 @@
 {
   "about": {
-    "dateSource": "'tweet' = date of Mike's post on X (US Eastern). 'file-modified' = last-modified time of the exported file in OneDrive. File creation times were not usable: every file has a creation time of 2024-05-04, the day the folder was copied. Modified times matched the tweet times within 3-7 minutes for all six tweeted pieces.",
+    "dateSource": "'tweet' = date of Mike's post on X (US Eastern). 'file-modified' = last-modified time of the exported file in OneDrive. File creation times were not usable: every file has a creation time of 2024-05-04, the day the folder was copied. Modified times matched the tweet times within 3-7 minutes for all six tweeted pieces. 'same-as:<id>' = Mike said it was made at the same time as that piece.",
     "source": "Original files: ~/OneDrive/Documents/Looking Cool Joker/minimalist/ ('source' is the original filename)."
   },
   "pieces": [
@@ -186,16 +186,6 @@
       "source": "daga kotowaru.svg"
     },
     {
-      "id": "zsscorrin",
-      "title": "ZSS Corrin",
-      "file": "art/zsscorrin.svg",
-      "thumb": "thumbs/zsscorrin.jpg",
-      "date": "2019-07-07",
-      "dateSource": "file-modified",
-      "tweetedAt": null,
-      "source": "zsscorrin.svg"
-    },
-    {
       "id": "bucci",
       "title": "Bucci",
       "file": "art/bucci.svg",
@@ -215,6 +205,17 @@
       "tweetedAt": null,
       "source": "kakkoii kakyoin.svg",
       "note": "The traced reference image layer was left visible and the green background rect sat off the page in the saved SVG. Here the reference is hidden and the rect covers the page. Framing follows the SVG page, which is a little tighter than the PNG export."
+    },
+    {
+      "id": "zsscorrin",
+      "title": "ZSS Corrin",
+      "file": "art/zsscorrin.svg",
+      "thumb": "thumbs/zsscorrin.jpg",
+      "date": "2019-06-29",
+      "dateSource": "same-as:corrin",
+      "tweetedAt": null,
+      "source": "zsscorrin.svg",
+      "note": "Made alongside Corrin, so it uses Corrin's date (Mike). The file itself was last modified 2019-07-07."
     },
     {
       "id": "corrin",
