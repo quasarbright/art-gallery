@@ -1,13 +1,6 @@
 // Vector art gallery: reads art.json, renders a grid grouped by year, and a
 // full-screen viewer at #<piece-id>.
 
-// TEMPORARY: only tet.svg has been copied from OneDrive so far (tet itself is not
-// in the gallery). Any piece whose
-// file is missing shows tet instead. Delete these two lines (and their uses in
-// fallback()) once every file in art.json is in art/ and thumbs/.
-const PLACEHOLDER_FILE = "art/tet.svg";
-const PLACEHOLDER_THUMB = "thumbs/tet.jpg";
-
 const gallery = document.getElementById("gallery");
 const viewer = document.getElementById("viewer");
 const vImg = viewer.querySelector(".viewer-img");
@@ -23,14 +16,6 @@ const wallCache = new Map(); // piece id -> sampled background color
 
 const dateFmt = new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
 const fmtDate = (d) => (d ? dateFmt.format(new Date(d + "T00:00:00Z")) : "");
-
-function fallback(img, placeholder) {
-  img.addEventListener("error", () => {
-    if (img.dataset.placeholder) return;
-    img.dataset.placeholder = "1";
-    img.src = placeholder;
-  });
-}
 
 // ---------- grid ----------
 function renderGrid() {
@@ -63,7 +48,6 @@ function renderGrid() {
       img.loading = "lazy";
       img.decoding = "async";
       img.alt = p.title;
-      fallback(img, PLACEHOLDER_THUMB);
       img.src = p.thumb;
       frame.append(img);
       btn.append(frame);
@@ -113,7 +97,7 @@ function wallFor(p) {
   if (wallCache.has(p.id)) return Promise.resolve(wallCache.get(p.id));
   return new Promise((resolve) => {
     const img = new Image();
-    fallback(img, PLACEHOLDER_THUMB);
+    img.onerror = () => resolve(null);
     img.onload = () => {
       let rgb = null;
       try { rgb = sampleWall(img); } catch { /* cross-origin or decode failure: keep the current wall */ }
@@ -139,7 +123,6 @@ function show(i) {
   if (!p) return;
   current = i;
   vImg.classList.add("is-loading");
-  vImg.removeAttribute("data-placeholder");
   vImg.alt = p.title;
   vImg.src = p.file;
   vTitle.textContent = p.title;
@@ -164,7 +147,6 @@ function link(href, text) {
 }
 
 vImg.addEventListener("load", () => vImg.classList.remove("is-loading"));
-fallback(vImg, PLACEHOLDER_FILE);
 
 function open(i) {
   if (viewer.hidden) {
