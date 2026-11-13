@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vector Art | Mike Delmonaco</title>
+  <meta name="theme-color" content="#17131f" />
+  <meta name="description" content="Minimalist vector wallpapers of anime and game characters by Mike Delmonaco." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" />
+  <link rel="stylesheet" href="https://quasarbright.github.io/sketches/shared/cohesion.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="https://quasarbright.github.io/sketches/shared/cohesion.js"></script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="gal-head">
+    <h1>Vector art</h1>
+    <p>Minimalist wallpapers of characters I like, drawn in Inkscape and later Affinity Designer.</p>
+  </header>
+
+  <main id="gallery" class="gal-years" aria-live="polite"></main>
+
+  <mike-footer></mike-footer>
+
+  <div id="viewer" class="viewer" role="dialog" aria-modal="true" aria-label="Artwork viewer" hidden>
+    <button class="viewer-close" type="button" title="Close (Esc)" aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+    </button>
+    <button class="viewer-nav viewer-prev" type="button" title="Previous piece (←)" aria-label="Previous piece">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+    </button>
+    <figure class="viewer-stage">
+      <img class="viewer-img" alt="" />
+    </figure>
+    <button class="viewer-nav viewer-next" type="button" title="Next piece (→)" aria-label="Next piece">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+    </button>
+    <div class="viewer-caption">
+      <div class="viewer-text">
+        <h2 class="viewer-title"></h2>
+        <p class="viewer-meta"></p>
+        <p class="viewer-desc"></p>
+      </div>
+      <div class="viewer-links"></div>
+    </div>
+  </div>
+</body>
+</html>

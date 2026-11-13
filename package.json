@@ -1,0 +1,7 @@
+{
+  "name": "art-gallery",
+  "private": true,
+  "type": "module",
+  "scripts": { "thumbs": "node tools/thumbs.mjs" },
+  "devDependencies": { "playwright": "1.63.0" }
+}

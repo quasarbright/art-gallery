@@ -1,0 +1,308 @@
+/* Vector art gallery. Tokens override the shared cohesion theme; the palette
+   comes from the art itself (deep violet backgrounds, Hisoka-pink hair). */
+:root {
+  --bg: #17131f;
+  --panel: #211c2b;
+  --panel-2: #2a2437;
+  --border: #352e45;
+  --text: #efeaf5;
+  --muted: #a39bb5;
+  --faint: #6c6480;
+  --accent: #f08fcd;
+  --accent-hi: #ffb0de;
+  --on-accent: #17131f;
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-ui: "Bricolage Grotesque", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --gutter: clamp(16px, 4vw, 56px);
+}
+
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+body.viewer-open { overflow: hidden; }
+
+/* ---------- header ---------- */
+.gal-head {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: clamp(40px, 9vw, 112px) var(--gutter) clamp(28px, 5vw, 56px);
+}
+.gal-head h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3rem, 9vw, 7.5rem);
+  font-variation-settings: "opsz" 96;
+  line-height: .9;
+  letter-spacing: -.035em;
+}
+.gal-head p {
+  margin: 18px 0 0;
+  max-width: 38ch;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.45;
+}
+
+/* ---------- year sections ---------- */
+.gal-years {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 0 var(--gutter) 48px;
+}
+.gal-year {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 0 clamp(16px, 3vw, 40px);
+  padding: 28px 0 40px;
+  border-top: 1px solid var(--border);
+}
+.gal-year-label {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 2.25rem;
+  font-variation-settings: "opsz" 72;
+  line-height: 1;
+  letter-spacing: -.02em;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  align-self: start;
+  position: sticky;
+  top: 24px;
+}
+.gal-year-count {
+  display: block;
+  margin-top: 8px;
+  font-size: .85rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--faint);
+}
+.gal-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: clamp(20px, 2.4vw, 32px) clamp(14px, 1.6vw, 22px);
+}
+
+/* ---------- tile ---------- */
+.gal-tile {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: zoom-in;
+}
+.gal-tile-frame {
+  display: block;
+  aspect-ratio: 16 / 9;
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--panel);
+}
+.gal-tile-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gal-tile-title {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+.gal-tile-date {
+  display: block;
+  margin-top: 2px;
+  font-size: .85rem;
+  color: var(--muted);
+}
+.gal-tile:hover .gal-tile-title { color: var(--accent-hi); }
+.gal-tile:focus-visible { outline: none; }
+.gal-tile:focus-visible .gal-tile-frame {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.gal-error {
+  color: var(--muted);
+  padding: 32px 0;
+}
+
+mike-footer { padding-bottom: 32px !important; }
+
+/* ---------- viewer ----------
+   The page behind the art takes on the art's own background color (sampled
+   from the image edge), so the wallpaper reads as filling the screen. */
+.viewer {
+  --wall: #17131f;
+  --ink: #efeaf5;
+  --ink-soft: rgb(239 234 245 / .72);
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: 64px 1fr 64px;
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+    "prev stage next"
+    "cap  cap   cap";
+  background: var(--wall);
+  color: var(--ink);
+  transition: background-color .45s ease, color .45s ease;
+}
+.viewer[hidden] { display: none; }
+.viewer-stage {
+  grid-area: stage;
+  margin: 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 0 8px;
+}
+.viewer-img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: opacity .2s ease;
+}
+.viewer-img.is-loading { opacity: 0; }
+
+.viewer button {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+  opacity: .7;
+}
+.viewer button:hover { opacity: 1; }
+.viewer button:focus-visible { outline: 2px solid var(--ink); outline-offset: -4px; border-radius: 10px; opacity: 1; }
+.viewer button svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.viewer-prev { grid-area: prev; }
+.viewer-next { grid-area: next; }
+.viewer-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 44px;
+  height: 44px;
+  z-index: 1;
+}
+.viewer-nav { align-self: center; width: 56px; height: 96px; justify-self: center; }
+
+.viewer-caption {
+  grid-area: cap;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px 32px;
+  padding: 16px 64px 22px;
+}
+.viewer-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.4rem, 2.6vw, 2.1rem);
+  font-variation-settings: "opsz" 48;
+  line-height: 1.05;
+  letter-spacing: -.02em;
+}
+.viewer-meta {
+  margin: 6px 0 0;
+  font-size: .95rem;
+  color: var(--ink-soft);
+}
+.viewer-desc {
+  margin: 4px 0 0;
+  max-width: 60ch;
+  font-size: .9rem;
+  color: var(--ink-soft);
+}
+.viewer-desc:empty { display: none; }
+.viewer-links {
+  display: flex;
+  gap: 8px 20px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+.viewer-links a {
+  color: var(--ink);
+  font-size: .95rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+.viewer-links a:hover { text-decoration-thickness: 2px; }
+
+/* ---------- phones ---------- */
+@media (max-width: 720px) {
+  .gal-year {
+    grid-template-columns: 1fr;
+    padding: 20px 0 32px;
+  }
+  .gal-year-label {
+    position: static;
+    font-size: 1.75rem;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .gal-year-count { margin: 0; }
+
+  .viewer {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto auto;
+    grid-template-areas:
+      "stage stage"
+      "cap   cap"
+      "prev  next";
+  }
+  .viewer-stage { padding: 56px 0 0; }
+  .viewer-caption {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 16px 4px;
+  }
+  .viewer-links { justify-content: flex-start; }
+  .viewer-nav { width: 100%; height: 56px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viewer, .viewer-img { transition: none; }
+}
