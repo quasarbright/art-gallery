@@ -213,7 +213,8 @@
       "date": "2019-06-30",
       "dateSource": "file-modified",
       "tweetedAt": null,
-      "source": "kakkoii kakyoin.svg"
+      "source": "kakkoii kakyoin.svg",
+      "note": "The traced reference image layer was left visible and the green background rect sat off the page in the saved SVG. Here the reference is hidden and the rect covers the page. Framing follows the SVG page, which is a little tighter than the PNG export."
     },
     {
       "id": "corrin",
@@ -223,7 +224,8 @@
       "date": "2019-06-29",
       "dateSource": "file-modified",
       "tweetedAt": null,
-      "source": "corrin.svg"
+      "source": "corrin.svg",
+      "note": "The traced reference image layer was left visible in the saved SVG; it is hidden here. Matches the PNG export."
     },
     {
       "id": "pro-genji",
