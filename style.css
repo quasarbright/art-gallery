@@ -1,16 +1,18 @@
-/* Vector art gallery. Tokens override the shared cohesion theme; the palette
-   comes from the art itself (deep violet backgrounds, Hisoka-pink hair). */
+/* Vector art gallery. Tokens override the shared cohesion theme. Like the blog,
+   the accent is this section's color on the home page (Vector Art is pink) and
+   the ground is tinted toward it. */
 :root {
-  --bg: #17131f;
-  --panel: #211c2b;
-  --panel-2: #2a2437;
-  --border: #352e45;
-  --text: #efeaf5;
-  --muted: #a39bb5;
-  --faint: #6c6480;
-  --accent: #f08fcd;
-  --accent-hi: #ffb0de;
-  --on-accent: #17131f;
+  --bg: #161117;
+  --panel: #1f1820;
+  --panel-2: #282029;
+  --border: #342a34;
+  --text: #eee6ec;
+  --soft: #cbbdc6;
+  --muted: #a3929d;
+  --faint: #6d5e68;
+  --accent: #ee90ba;
+  --accent-hi: #f6b4d2;
+  --on-accent: #161117;
   --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
   --font-ui: "Bricolage Grotesque", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --gutter: clamp(16px, 4vw, 56px);
@@ -29,11 +31,34 @@ body {
 }
 body.viewer-open { overflow: hidden; }
 
+/* ---------- site header (same crumb bar as the blog) ---------- */
+.site-header {
+  padding: 18px var(--gutter);
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  line-height: 1.3;
+}
+.site-nav { max-width: calc(1480px - 2 * var(--gutter)); margin: 0 auto; }
+.crumbs { margin: 0; display: flex; align-items: baseline; gap: 10px; }
+.crumbs a { text-decoration: none; }
+.crumb-home { color: var(--muted); }
+.crumb-home:hover { color: var(--text); }
+.crumb-sep { color: var(--faint); }
+.crumb-here {
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+}
+.crumb-here:hover { color: var(--accent-hi); }
+.crumbs a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
 /* ---------- header ---------- */
 .gal-head {
   max-width: 1480px;
   margin: 0 auto;
-  padding: clamp(40px, 9vw, 112px) var(--gutter) clamp(28px, 5vw, 56px);
+  padding: clamp(36px, 7vw, 88px) var(--gutter) clamp(28px, 5vw, 56px);
 }
 .gal-head h1 {
   margin: 0;
@@ -154,7 +179,7 @@ mike-footer { padding-bottom: 32px !important; }
    The page behind the art takes on the art's own background color (sampled
    from the image edge), so the wallpaper reads as filling the screen. */
 .viewer {
-  --wall: #17131f;
+  --wall: #161117;
   --ink: #efeaf5;
   --ink-soft: rgb(239 234 245 / .72);
   position: fixed;
