@@ -11,7 +11,6 @@ const vLinks = viewer.querySelector(".viewer-links");
 let pieces = [];
 let current = -1;
 let lastFocus = null;
-const wallCache = new Map(); // piece id -> sampled background color
 
 const dateFmt = new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
 const fmtDate = (d) => (d ? dateFmt.format(new Date(d + "T00:00:00Z")) : "");
@@ -63,48 +62,19 @@ function renderGrid() {
 }
 
 // ---------- wall color ----------
-// Sample the image's outer edge and take the per-channel median. Every piece
-// is a flat-background wallpaper, so the edge is almost always the background.
-function sampleWall(img) {
-  const w = 64, h = Math.max(1, Math.round(64 * img.naturalHeight / img.naturalWidth)) || 36;
-  const c = document.createElement("canvas");
-  c.width = w; c.height = h;
-  const ctx = c.getContext("2d", { willReadFrequently: true });
-  ctx.drawImage(img, 0, 0, w, h);
-  const { data } = ctx.getImageData(0, 0, w, h);
-  const r = [], g = [], b = [];
-  const take = (x, y) => { const i = (y * w + x) * 4; r.push(data[i]); g.push(data[i + 1]); b.push(data[i + 2]); };
-  for (let x = 0; x < w; x++) { take(x, 0); take(x, h - 1); }
-  for (let y = 0; y < h; y++) { take(0, y); take(w - 1, y); }
-  const med = (a) => a.sort((m, n) => m - n)[a.length >> 1];
-  return [med(r), med(g), med(b)];
-}
-
-function setWall(rgb) {
-  const [r, g, b] = rgb;
+// The viewer's background is the art's own background color, from art.json's
+// `bg` (measured from the full-size file; see `about.bg` there).
+function setWall(hex) {
+  const n = parseInt(hex.slice(1), 16);
+  const r = n >> 16, g = (n >> 8) & 255, b = n & 255;
   // relative luminance decides light or dark caption text
   const lin = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; };
   const L = 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
   const dark = L < 0.35;
-  viewer.style.setProperty("--wall", `rgb(${r} ${g} ${b})`);
+  viewer.style.setProperty("--wall", hex);
   viewer.style.setProperty("--ink", dark ? "#f6f2fa" : "#15111c");
   viewer.style.setProperty("--ink-soft", dark ? "rgb(246 242 250 / .74)" : "rgb(21 17 28 / .72)");
-  document.querySelector('meta[name="theme-color"]')?.setAttribute("content", `rgb(${r} ${g} ${b})`);
-}
-
-function wallFor(p) {
-  if (wallCache.has(p.id)) return Promise.resolve(wallCache.get(p.id));
-  return new Promise((resolve) => {
-    const img = new Image();
-    img.onerror = () => resolve(null);
-    img.onload = () => {
-      let rgb = null;
-      try { rgb = sampleWall(img); } catch { /* cross-origin or decode failure: keep the current wall */ }
-      if (rgb) wallCache.set(p.id, rgb);
-      resolve(rgb);
-    };
-    img.src = p.thumb;
-  });
+  document.querySelector('meta[name="theme-color"]')?.setAttribute("content", hex);
 }
 
 // ---------- viewer ----------
@@ -120,12 +90,9 @@ function show(i) {
   vLinks.innerHTML = "";
   vLinks.append(link(p.file, p.file.endsWith(".svg") ? "Open SVG" : "Open PNG"));
   document.title = `${p.title} | Mike Delmonaco’s Vector Art`;
-  wallFor(p).then((rgb) => { if (current === i && rgb) setWall(rgb); });
+  setWall(p.bg);
   // warm the neighbors so arrowing through is instant
-  for (const j of [i - 1, i + 1]) {
-    const q = pieces[(j + pieces.length) % pieces.length];
-    wallFor(q);
-  }
+  for (const j of [i - 1, i + 1]) new Image().src = pieces[(j + pieces.length) % pieces.length].file;
 }
 
 function link(href, text) {
