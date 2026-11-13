@@ -147,7 +147,7 @@ function show(i) {
   vLinks.innerHTML = "";
   if (p.tweet) vLinks.append(link(p.tweet, "View post on X"));
   vLinks.append(link(p.file, p.file.endsWith(".svg") ? "Open SVG" : "Open PNG"));
-  document.title = `${p.title} | Vector Art | Mike Delmonaco`;
+  document.title = `${p.title} | Mike Delmonaco’s Vector Art`;
   wallFor(p).then((rgb) => { if (current === i && rgb) setWall(rgb); });
   // warm the neighbors so arrowing through is instant
   for (const j of [i - 1, i + 1]) {
@@ -181,7 +181,7 @@ function close() {
   viewer.hidden = true;
   current = -1;
   document.body.classList.remove("viewer-open");
-  document.title = "Vector Art | Mike Delmonaco";
+  document.title = "Mike Delmonaco’s Vector Art";
   // return focus to the tile of the piece that was showing, so keyboard users land where they were
   const tile = id && gallery.querySelector(`[data-id="${CSS.escape(id)}"]`);
   (tile || lastFocus)?.focus({ preventScroll: false });

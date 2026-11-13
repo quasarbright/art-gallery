@@ -39,14 +39,16 @@ body.viewer-open { overflow: hidden; }
   margin: 0;
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(3rem, 9vw, 7.5rem);
+  font-size: clamp(2.75rem, 7vw, 6rem);
   font-variation-settings: "opsz" 96;
-  line-height: .9;
+  line-height: .92;
   letter-spacing: -.035em;
+  text-wrap: balance;
 }
 .gal-head p {
   margin: 18px 0 0;
-  max-width: 38ch;
+  max-width: 48ch;
+  text-wrap: balance;
   color: var(--muted);
   font-size: clamp(1rem, 1.6vw, 1.2rem);
   line-height: 1.45;
